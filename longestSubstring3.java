@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 public class longestSubstring3 {
 
@@ -7,23 +7,26 @@ public class longestSubstring3 {
     }
 
     private static int lengthOfLongestSubstring(String s) {
+    	
+    	if (s.length() == 0) return 0;
+    	
         int left = 0;
         int right = 1;
-        int streak = 1;
         int maxStreak = 1;
+        Set<Character> set = new HashSet<>();
 
         while (left < s.length() && right < s.length()) {
-            System.out.println(s.charAt(left) + " - " + s.charAt(right));
-            if (s.charAt(left) == s.charAt(right)) {
-                streak = 0;
+        	set.add(s.charAt(left));
+            if (set.contains(s.charAt(right))) {
+                set.clear();
                 left++;
                 right = left + 1;
             }
             else {
-                streak += 1;
+            	set.add(s.charAt(right));
                 right++;
             }
-            maxStreak = Math.max(maxStreak,streak);
+            maxStreak = Math.max(maxStreak,set.size());
         }
 
         return maxStreak;
