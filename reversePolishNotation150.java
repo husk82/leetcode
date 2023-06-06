@@ -9,37 +9,28 @@ public class reversePolishNotation150 {
 	public static int evalRPN(String[] tokens) {
 				
 		Stack<Integer> stack = new Stack<>();
-		int fir, sec, res;
 		
 		for (String token: tokens) {
 			
 			if (token.equals("+")) {
-				sec = stack.pop();
-				fir = stack.pop();
-				res = fir + sec;
-				System.out.println(fir + " + " + sec + " = " + res);
-				stack.push(res);
+				int sec = stack.pop();
+				int fir = stack.pop();
+				stack.push(fir + sec);
 			}
 			else if (token.equals("-")) {
-				sec = stack.pop();
-				fir = stack.pop();
-				res = fir - sec;
-				System.out.println(fir + " - " + sec + " = " + res);
-				stack.push(res);
+				int sec = stack.pop();
+				int fir = stack.pop();
+				stack.push(fir - sec);
 			}
 			else if (token.equals("/")) {
-				sec = stack.pop();
-				fir = stack.pop();
-				res = fir / sec;
-				System.out.println(fir + " / " + sec + " = " + res);
-				stack.push(res);
+				int sec = stack.pop();
+				int fir = stack.pop();
+				stack.push(fir / sec);
 			}
 			else if (token.equals("*")) {
-				sec = stack.pop();
-				fir = stack.pop();
-				res = fir * sec;
-				System.out.println(fir + " * " + sec + " = " + res);
-				stack.push(res);
+				int sec = stack.pop();
+				int fir = stack.pop();
+				stack.push(fir * sec);
 			}
 			else {
 				stack.push(Integer.parseInt(token));
