@@ -8,11 +8,9 @@ class Solution:
 
         while i < j:
             if height[i] < height[j]:
-                print(height[i] , "  ", j-i, "  ", height[j] * (j - i))
                 mArea = max(mArea, height[i] * (j - i))
                 i += 1
             else:
-                print(height[j] , "  ", j-i , "  ", height[j] * (j - i))
                 mArea = max(mArea, height[j] * (j - i))
                 j -= 1
 
