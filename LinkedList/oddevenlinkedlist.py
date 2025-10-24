@@ -16,15 +16,12 @@ class Solution:
         even_head = even
         
         while even and even.next:
-            # Link current odd to next odd
             odd.next = even.next
             odd = odd.next
             
-            # Link current even to next even
             even.next = odd.next
             even = even.next
         
-        # Attach even list at the end of odd list
         odd.next = even_head
         return head
     
