@@ -14,10 +14,10 @@ class Solution:
 
     def findLeafNodes(self, root:Optional[TreeNode], leaves: list) -> list:
         if not root:
-            return 
+            return leaves
         if not root.left and not root.right:
             leaves.append(root.val)
-            return
+            return leaves
         self.findLeafNodes(root.left, leaves)
         self.findLeafNodes(root.right, leaves)
         return leaves
