@@ -15,6 +15,6 @@ class SmallestInfiniteSet:
             
 
     def addBack(self, num: int) -> None:
-        if self.current > num: 
+        if self.current > num and num not in self.heap: 
             heapq.heappush(self.heap, num)
     
